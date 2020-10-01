@@ -1,0 +1,8 @@
+{
+    "QueueName": "FileTransfer.fifo",
+    "Attributes": {
+        "ContentBasedDeduplication": "true",
+        "FifoQueue": "true",
+        "KmsMasterKeyId" : "alias/aws/sqs"
+    }
+}
