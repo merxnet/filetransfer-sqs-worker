@@ -3,6 +3,7 @@
     "Attributes": {
         "ContentBasedDeduplication": "true",
         "FifoQueue": "true",
+        "ReceiveMessageWaitTimeSeconds": "20",
         "KmsMasterKeyId" : "alias/aws/sqs"
     }
 }
