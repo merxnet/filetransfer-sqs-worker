@@ -7,20 +7,22 @@ from configparser import ConfigParser
 from sys import argv
 
 ## parameters provided by Deluge
+script_dir = os.path.dirname(os.path.realpath(__file__))
+ini = script_dir + '/config.ini'
 file_id = argv[1]
 file_name = argv[2]
 file_path = argv[3]
 
-if os.path.isfile('config.ini'):
+if os.path.isfile(ini):
   config = ConfigParser()
-  config.read('config.ini')
+  config.read(ini)
   queue_url = config.get('SQS', 'URL')
 else:
   queue_url = os.environ['SQS_URL']
 
 sqs = boto3.client('sqs')
 
-with open('attributes.json', 'r') as f:
+with open(script_dir + '/attributes.json', 'r') as f:
     attrs = f.read()
 
 msg_attrs = json.loads(attrs)
