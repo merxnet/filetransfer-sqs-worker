@@ -3,6 +3,7 @@
 import boto3
 import json
 import os
+from configparser import ConfigParser
 from sys import argv
 
 ## parameters provided by Deluge
@@ -10,8 +11,14 @@ file_id = argv[1]
 file_name = argv[2]
 file_path = argv[3]
 
+if os.path.isfile('config.ini'):
+  config = ConfigParser()
+  config.read('config.ini')
+  queue_url = config.get('SQS', 'URL')
+else:
+  queue_url = os.environ['SQS_URL']
+
 sqs = boto3.client('sqs')
-queue_url = os.environ['SQS_URL']
 
 with open('attributes.json', 'r') as f:
     attrs = f.read()
