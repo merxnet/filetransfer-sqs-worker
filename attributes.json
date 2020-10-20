@@ -1,13 +1,13 @@
 {
-  "FileHash": {
+  "Hash": {
     "DataType": "String",
     "StringValue": ""
   },
-  "FileName": {
+  "Name": {
     "DataType": "String",
     "StringValue": ""
   },
-  "FilePath": {
+  "Path": {
     "DataType": "String",
     "StringValue": ""
   }
