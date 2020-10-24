@@ -59,6 +59,12 @@ p = 5
 for attr in attrs:
   t_path = attr['Path']['StringValue']
   t_name = attr['Name']['StringValue']
-  cmd = "bbcp -Ar -P {} -s {} {}@{}:{}/'{}' {}/'{}'".format(p, streams, user, t_host, t_path, t_name, target_dir, t_name)
+  is_dir = attr['Directory']['StringValue']
+
+  if is_dir == 'True':
+    cmd = "bbcp -Ar -P {} -s {} {}@{}:{}/'{}' {}/'{}'".format(p, streams, user, t_host, t_path, t_name, target_dir, t_name)
+  else:
+    cmd = "bbcp -Ar -P {} -s {} {}@{}:{}/'{}' {}".format(p, streams, user, t_host, t_path, t_name, target_dir)
+
   print(cmd)
   res = os.system(cmd)

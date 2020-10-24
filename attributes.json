@@ -10,5 +10,9 @@
   "Path": {
     "DataType": "String",
     "StringValue": ""
+  },
+  "Directory": {
+    "DataType": "String",
+    "StringValue": "False"
   }
 }
