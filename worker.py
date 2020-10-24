@@ -17,6 +17,7 @@ if os.path.isfile(ini):
   user = config.get('Main', 'User')
   t_host = config.get('Main', 'Host')
   target_dir = config.get('Main', 'Target')
+  streams = config.get('Main', 'Streams')
   queue_url = config.get('SQS', 'URL')
 
   try:
@@ -54,11 +55,10 @@ for handle in handles:
   print('Deleted message {}'.format(handle))
 
 p = 5
-s = 4
 
 for attr in attrs:
   t_path = attr['Path']['StringValue']
   t_name = attr['Name']['StringValue']
-  cmd = "bbcp -Ar -P {} -s {} {}@{}:{}/'{}' {}/'{}'".format(p, s, user, t_host, t_path, t_name, target_dir, t_name)
+  cmd = "bbcp -Ar -P {} -s {} {}@{}:{}/'{}' {}/'{}'".format(p, streams, user, t_host, t_path, t_name, target_dir, t_name)
   print(cmd)
   res = os.system(cmd)
