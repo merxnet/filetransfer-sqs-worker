@@ -62,9 +62,9 @@ for attr in attrs:
   is_dir = attr['Directory']['StringValue']
 
   if is_dir == 'True':
-    cmd = "bbcp -Ar -P {} -s {} {}@{}:{}/'{}' {}/'{}'".format(p, streams, user, t_host, t_path, t_name, target_dir, t_name)
+    cmd = "bbcp -Avr -P {} -s {} {}@{}:{}/'{}' {}/'{}'".format(p, streams, user, t_host, t_path, t_name, target_dir, t_name)
   else:
-    cmd = "bbcp -Ar -P {} -s {} {}@{}:{}/'{}' {}".format(p, streams, user, t_host, t_path, t_name, target_dir)
+    cmd = "bbcp -Avr -P {} -s {} {}@{}:{}/'{}' {}".format(p, streams, user, t_host, t_path, t_name, target_dir)
 
   print(cmd)
   res = os.system(cmd)
