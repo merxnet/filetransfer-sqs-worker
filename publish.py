@@ -31,7 +31,7 @@ msg_attrs['Name']['StringValue'] = t_name
 msg_attrs['Path']['StringValue'] = t_path
 
 if os.path.isdir(t_path + '/' + t_name):
-  msg_attr['Directory']['StringValue'] = 'True'
+  msg_attrs['Directory']['StringValue'] = 'True'
 
 response = sqs.send_message(
   QueueUrl=queue_url,
