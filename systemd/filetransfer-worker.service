@@ -1,0 +1,7 @@
+[Unit]
+Description=Transfer worker for files downloaded via Deluge
+
+[Service]
+Type=oneshot
+ExecStartPre=/usr/bin/pip3 install -r /var/lib/filetransfer-worker/requirements.txt
+ExecStart=/var/lib/filetransfer-worker/worker.py
