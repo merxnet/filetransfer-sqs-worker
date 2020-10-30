@@ -37,7 +37,7 @@ sqs = session.client('sqs')
 message = sqs.receive_message(
   QueueUrl=queue_url,
   MessageAttributeNames=['All'],
-  MaxNumberOfMessages=1
+  MaxNumberOfMessages=10
 )
 
 try:
